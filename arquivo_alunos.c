@@ -195,8 +195,80 @@ void dois(){
     fclose(arq);
 }
 
-// void tres(){ }
+void tres(){
+
+    //ABRINDO E LENDO O ARQUIVO
+
+    int id;
+    char periodo[11];
+    char materia[50];
+    char aluno[30];
+    char genero;
+    int idade;
+    float n1;
+    float n2;
+    float n3;
+    float media;
+    char situacao;
+    int op1;
+
+    FILE *arq;
+
+    arq = fopen("Alunos.txt", "r");
+
+    if (arq == NULL){
+        printf("Erro ao abrir o arquivo!");
+        return 1;
+    }
+
+
+   
+    // printf("\t  --- UNIDADES CURRICULARES ---\n\n");
+    // printf("123 - INTERFACE-HOMEM-COMPUTADOR\n");
+    // printf("234 - PROGRAMAÇÃO-DE-COMPUTADORES\n");
+    // printf("345 - LABORATORIO-DE-SISTEMAS-OPERACIONAIS\n");
+    // printf("=====================================================\n");
+
+    // printf("Digite o código da unidade curricular: ");
+    // scanf("%d", &op1);
+    // printf("=====================================================\n\n");
+
+    // printf("\t--- UNIDADE CURRICULAR - %d ---\n\n",op1);
+
+
+    while (fscanf(arq, "%d ", &id) != EOF){
+        fscanf(arq, "%s ", &periodo);
+        fscanf(arq, "%s ", &materia);
+        fscanf(arq, "%s ", &aluno);
+        fscanf(arq, "%c ", &genero);
+        fscanf(arq, "%d ", &idade);
+        fscanf(arq, "%f ", &n1);
+        fscanf(arq, "%f ", &n2);
+        fscanf(arq, "%f", &n3);
+
+        if(id == op1){
+
+        //APRESENTANDO ARQUIVO
+
+            printf("ID: %d \n", id);
+            printf("Periodo: %s \n",periodo);
+            printf("Materia: %s \n",materia);
+            printf("Aluno: %s \n",aluno);
+            printf("Genero: %c \n",genero);
+            printf("Idade: %d \n",idade);
+            printf("Nota 01: %.2f \n",n1);
+            printf("NOta 02: %.2f \n",n2);
+            printf("Nota 03: %.2f \n\n",n3);
+
+            sleep(1);
+
+        }
+    }
+
+    fclose(arq);
+
+
+}
 
 // void quatro(){ }
 
-// void cinco(){ }
