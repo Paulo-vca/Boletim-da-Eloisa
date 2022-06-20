@@ -10,26 +10,31 @@ PERIODO MATERIA	ALUNO	GENERO	IDADE	N1	N2	N3	MEDIA	SITUAÇÃO*/
 
 void um();
 void dois();
-void tres();
-void quatro();
-void cinco();
+// void tres();
+// void quatro();
+
+
 
 int main(){
-    setlocale(LC_ALL, "portuguese-brazilian");
+    setlocale(LC_ALL, "Portuguese");
     int op, cont = 1;
 
 
     while(cont==1){
         printf("=====================================================\n");
-        printf("OPÇÕES\n");
+        printf("\t\tTABELA DE EXIBIÇÃO\n");
         printf("=====================================================\n");
-        printf("1 - Apresentar dados dos arquivos\n");
+        printf("1 - Apresentar arquivo dos alunos\n");
         printf("2 - Exibir alunos matriculados em determinada materia\n");
-        printf("3 - Calcular média\n");
-        printf("4 - Situação do aluno\n");
+        printf("3 - Média dos alunos em determinada materia\n");
+        printf("4 - Situação dos alunos\n");
         printf("5 - Sair\n");
         printf("=====================================================\n");
+        
+        printf("Digite sua opção: ");
         scanf("%d", &op);
+        printf("=====================================================\n\n");
+
 
         switch(op){
 
@@ -42,18 +47,17 @@ int main(){
             break;
 
             case 3:
-                tres();
+                // tres();
             break;
 
             case 4:
-                quatro();
+                // quatro();
             break;
             case 5:
-                cinco();
+                 cont++;
             break;
             default:
-                cont++;
-                printf("Você escolheu sair...\n");
+                printf("Você digitou uma opção invalida!\n");
             }
 
     }
@@ -62,7 +66,7 @@ return 0;
 }
 
 void um(){
-
+  
      //ABRINDO E LENDO O ARQUIVO
 
     int id;
@@ -85,6 +89,8 @@ void um(){
         printf("Erro ao abrir o arquivo!");
         return 1;
     }
+    
+    printf("\t\t--- ARQUIVO ---\n\n");
 
     while (fscanf(arq, "%d ", &id) != EOF){
         fscanf(arq, "%s ", &periodo);
@@ -115,6 +121,7 @@ void um(){
     fclose(arq);
 
 }
+
 void dois(){
 
  //ABRINDO E LENDO O ARQUIVO
@@ -142,15 +149,19 @@ void dois(){
     }
 
 
-    printf("\nVisualizar alunos em tal materia\n");
-    printf("=====================================================\n");
-    printf("OPÇÕES\n");
-    printf("=====================================================\n");
+   
+    printf("\t  --- UNIDADES CURRICULARES ---\n\n");
     printf("123 - INTERFACE-HOMEM-COMPUTADOR\n");
     printf("234 - PROGRAMAÇÃO-DE-COMPUTADORES\n");
     printf("345 - LABORATORIO-DE-SISTEMAS-OPERACIONAIS\n");
     printf("=====================================================\n");
+
+    printf("Digite o código da unidade curricular: ");
     scanf("%d", &op1);
+    printf("=====================================================\n\n");
+
+    printf("\t--- UNIDADE CURRICULAR - %d ---\n\n",op1);
+
 
     while (fscanf(arq, "%d ", &id) != EOF){
         fscanf(arq, "%s ", &periodo);
@@ -184,8 +195,8 @@ void dois(){
     fclose(arq);
 }
 
-void tres(){ }
+// void tres(){ }
 
-void quatro(){ }
+// void quatro(){ }
 
-void cinco(){ }
+// void cinco(){ }
