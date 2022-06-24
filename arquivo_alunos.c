@@ -21,6 +21,9 @@ int main(){
 
 
     while(cont==1){
+
+
+
         printf("=====================================================\n");
         printf("\t\tTABELA DE EXIBIÇÃO\n");
         printf("=====================================================\n");
@@ -66,6 +69,8 @@ return 0;
 }
 
 void um(){
+
+    system("clear");
 
      //ABRINDO E LENDO O ARQUIVO
 
@@ -124,6 +129,7 @@ void um(){
 
 void dois(){
 
+    system("clear");
  //ABRINDO E LENDO O ARQUIVO
 
     int id;
@@ -197,6 +203,8 @@ void dois(){
 
 void tres(){
 
+    system("clear");
+
     //ABRINDO E LENDO O ARQUIVO
 
     int id;
@@ -256,6 +264,8 @@ void tres(){
 
 void quatro(){
 
+    system("clear");
+
  //ABRINDO E LENDO O ARQUIVO
 
     int id;
@@ -298,15 +308,29 @@ void quatro(){
             printf("Periodo: %s \n",periodo);
             printf("Materia: %s \n",materia);
             printf("Aluno: %s \n",aluno);
-            //printf("Genero: %c \n",genero);
-            //printf("Idade: %d \n",idade);
             printf("Nota 01: %.2f \n",n1);
             printf("NOta 02: %.2f \n",n2);
             printf("Nota 03: %.2f \n",n3);
             printf("Média: %.2f \n", media);
             printf("Situação: Reprovado\n\n");
-            //fprintf(arq, "%.2f\n", media);
-            //printf("Situação: Reprovado\n\n");
+
+            arqS = fopen("saidaArqui.txt", "a");
+                if (arqS == NULL){
+                    printf("Erro ao abrir o arquivo!\n");
+                    return 1;
+                }
+
+
+                fprintf(arqS, "%d ", id);
+                fprintf(arqS, "%s ", periodo);
+                fprintf(arqS, "%s ", materia);
+                fprintf(arqS, "%s ", aluno);
+                fprintf(arqS, "%.2f ", n1);
+                fprintf(arqS, "%.2f ", n2);
+                fprintf(arqS, "%.2f ", n3);
+                fprintf(arqS, "%.2f ", media);
+
+
 
             sleep(1);
         }
@@ -315,38 +339,37 @@ void quatro(){
             printf("Periodo: %s \n",periodo);
             printf("Materia: %s \n",materia);
             printf("Aluno: %s \n",aluno);
-            //printf("Genero: %c \n",genero);
-            //printf("Idade: %d \n",idade);
             printf("Nota 01: %.2f \n",n1);
             printf("NOta 02: %.2f \n",n2);
             printf("Nota 03: %.2f \n",n3);
             printf("Média: %.2f \n", media);
             printf("Situação: Aprovado\n\n");
-            //\fprintf(arq, " %.2f\n", media);
 
-        }
-
-    }
-
-            arqS = fopen("saidaArquivo.txt", "a");
+            arqS = fopen("saidaArqui.txt", "a");
                 if (arqS == NULL){
                     printf("Erro ao abrir o arquivo!\n");
                     return 1;
                 }
 
-                fprintf(arqS, "%d ", &id);
-                fprintf(arqS, "%s ", &periodo);
-                fprintf(arqS, "%s ", &materia);
-                fprintf(arqS, "%s ", &aluno);
-                fprintf(arqS, "%c ", &genero);
-                fprintf(arqS, "%d ", &idade);
-                fprintf(arqS, "%f ", &n1);
-                fprintf(arqS, "%f ", &n2);
-                fprintf(arqS, "%f ", &n3);
-                fprintf(arqS, "%f", &media);
+
+                fprintf(arqS, "%d ", id);
+                fprintf(arqS, "%s ", periodo);
+                fprintf(arqS, "%s ", materia);
+                fprintf(arqS, "%s ", aluno);
+                fprintf(arqS, "%.2f ", n1);
+                fprintf(arqS, "%.2f ", n2);
+                fprintf(arqS, "%.2f ", n3);
+                fprintf(arqS, "%.2f \n", media);
 
                 fclose(arqS);
 
+
+        }
+
+    }
+
+
+
 }
 
-    fclose(arq);
+fclose(arq);
