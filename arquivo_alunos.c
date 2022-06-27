@@ -1,5 +1,10 @@
+// IFMS - TADS
+// Eloisa e Paulo
 /*MODELO TABELA EXIBIÇÃO:
 PERIODO MATERIA	ALUNO	GENERO	IDADE	N1	N2	N3	MEDIA	SITUAÇÃO*/
+
+
+// Bibliotecas
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,6 +12,8 @@ PERIODO MATERIA	ALUNO	GENERO	IDADE	N1	N2	N3	MEDIA	SITUAÇÃO*/
 #include <math.h>
 #include <time.h>
 #include <locale.h>
+
+// Declaração
 
 void um();
 void dois();
@@ -16,10 +23,13 @@ void quatro();
 
 
 int main(){
+    //adaptação
     setlocale(LC_ALL, "Portuguese");
+    //Declaração das variaveis
     int op, cont = 1;
 
-
+    //laço de reptição 
+    // Selecionar uma opção
     while(cont==1){
 
 
@@ -38,7 +48,7 @@ int main(){
         scanf("%d", &op);
         printf("=====================================================\n\n");
 
-
+        //escolha - para chamar a função
         switch(op){
 
             case 1:
@@ -57,9 +67,11 @@ int main(){
                 quatro();
             break;
             case 5:
+                //sair do laço
                  cont++;
             break;
             default:
+                //Alternativa digitada nao verdadeira 
                 printf("Você digitou uma opção invalida!\n");
             }
 
@@ -69,7 +81,7 @@ return 0;
 }
 
 void um(){
-
+    //linpar tela
     system("clear");
 
      //ABRINDO E LENDO O ARQUIVO
@@ -96,7 +108,7 @@ void um(){
     }
 
     printf("\t\t--- ARQUIVO ---\n\n");
-
+    //leitura do arquivo
     while (fscanf(arq, "%d ", &id) != EOF){
         fscanf(arq, "%s ", &periodo);
         fscanf(arq, "%s ", &materia);
@@ -320,7 +332,7 @@ void quatro(){
                     return 1;
                 }
 
-
+                //adicionando no arquivo
                 fprintf(arqS, "%d ", id);
                 fprintf(arqS, "%s ", periodo);
                 fprintf(arqS, "%s ", materia);
@@ -371,5 +383,5 @@ void quatro(){
 
 
 }
-
+//fechando arquivo
 fclose(arq);
